@@ -1,0 +1,47 @@
+﻿@using bishe1.Entity;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLogonLayout.cshtml";
+}
+<h2>BackStage</h2>
+<br/>
+<h4>在此处，浏览所有员工的信息，并可以修改。</h4>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>username</th>
+        <th>password</th>
+        <th>loginID</th>
+        <th>flag</th>
+        <th>email</th>
+        <th>qq</th>
+        <th>tel</th>
+        <th>registertime</th>
+        <th>type1</th>
+        <th>操作</th>
+    </tr>
+    @foreach (user_information useInfo in ViewBag.publishList)
+    {
+    <tr>
+        <td>@useInfo.id</td>
+        <td>@useInfo.username</td>
+        <td>@useInfo.password</td>
+        <td>@useInfo.loginID</td>
+        <td>@useInfo.flag</td>
+        <td>@useInfo.email</td>
+        <td>@useInfo.qq</td>
+        <td>@useInfo.tel</td>
+        <td>@useInfo.registertime</td>
+        <td>@useInfo.type1</td>
+        <td><a href="/BackEdit/Edit/@useInfo.id">编辑</a> <a href="javascript:void(0)" onclick="del(@useInfo.id)">删除</a></td>
+    </tr>
+    }
+    
+    
+
+</table>
+
+

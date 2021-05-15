@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "RegisterView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RegisterView</h2>
+
+@{
+    var test = ViewData["regtest"] as bishe1.Models.UserInformation;
+}
+
+<ul>
+    @test.Username;
+    @test.Password;
+</ul>

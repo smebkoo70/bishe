@@ -1,0 +1,44 @@
+﻿@model bishe1.Entity.notice
+
+@{
+    ViewBag.Title = "NoticeModify";
+    Layout = "~/Views/Shared/_AdminLogonLayout.cshtml";
+}
+
+<h2>NoticeModify</h2>
+
+
+<div class="form-horizontal">
+    @using (Ajax.BeginForm("NoticeModify", "BackManager", new AjaxOptions { HttpMethod = "post", OnSuccess = "success" }))
+    {
+
+        @Html.HiddenFor(n => n.subtime)
+        <div class="form-group">
+            @Html.LabelFor(n => n.title, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(n => n.contents, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(n => n.contents, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.contents, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+
+
+    }
+</div>

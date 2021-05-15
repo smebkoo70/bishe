@@ -1,0 +1,62 @@
+﻿@using bishe1.Models;
+@using System.Data;
+@model IEnumerable<bishe1.Models.User>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+<!--本页面是专门用来测试MySQL连接情况的-->
+
+<h2>这个页面用于测试MySQL数据库的连接是否成功。</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (DataRow dr in (ViewData["User"] as DataTable).Rows)
+    {
+    <tr>
+        <td>
+            @dr["username"]
+        </td>
+        <td>
+            @dr["password"]
+        </td>
+        <td>
+            @dr["name"]
+        </td>
+        <td>
+            @dr["type1"]
+        </td>
+    </tr>
+        
+    }
+    
+
+</table>
+
+
+<ul>
+    @foreach (DataRow dr in (ViewData["User"] as DataTable).Rows)
+    {
+        <li>
+            @dr["username"],@dr["password"],@dr["name"],@dr["type1"],
+        </li>
+    }
+</ul>
+
+<p>Hello from our View Template!</p>

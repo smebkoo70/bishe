@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin Login Page</h2>
+<form role="form" action="/BackStage/AdminLoginExcessive" method="post">
+    <div class="form-group">
+        <label for="name">后台用户名</label>
+        <input type="text" class="form-control" placeholder="请输入用户名" name="Username" value="@ViewBag.Username">
+    </div>
+    <div class="form-group">
+        <label for="name">密码</label>
+        <input type="password" class="form-control" placeholder="请输入密码" name="Password" value="@ViewBag.Password">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="RemCheckbox">记住密码
+        </label>
+    </div>
+    <p>
+        @Html.ActionLink("没有账号？点此注册", "RegisterPage")
+    </p>
+    <br />
+    <button type="sumbit" class="btn btn-primary btn-lg " name="LoginBtn" onclick="LoginBtn_Click()">Login</button>
+    <br />
+
+</form>

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+<!--会员登录首页-->
+<h2>欢迎你，@ViewBag.Username</h2>
+
+<div id="datetime">
+<script>
+    setInterval("document.getElementById('datetime').innerHTML=new Date().toLocaleString();", 1000);
+</script>
+</div>
+
+

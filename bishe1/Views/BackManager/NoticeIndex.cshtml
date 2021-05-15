@@ -1,0 +1,55 @@
+﻿@model IEnumerable<bishe1.Entity.notice>
+@using bishe1.Entity;
+
+@{
+    ViewBag.Title = "NoticeIndex";
+    Layout = "~/Views/Shared/_AdminLogonLayout.cshtml";
+}
+
+<h2>NoticeIndex</h2>
+
+<p>
+    @Html.ActionLink("写一篇新的通知", "NewNotice")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.subtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edittime)
+        </th>
+        <th>
+            操作
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (notice noticeInfo in ViewBag.NoteList)
+    {
+    <tr>
+        <td>@noticeInfo.id</td>
+
+        <td>@noticeInfo.title</td>
+
+        <td>@noticeInfo.subtime</td>
+
+        <td>@noticeInfo.edittime</td>
+
+        <td>
+            <a href="/BackManager/NoticeVisit/@noticeInfo.id">查看</a>
+            <a href="/BackManager/NoticeModify/@noticeInfo.id">修改</a>
+            <a href="/BackManager/NoticeDelete/@noticeInfo.id">删除</a>
+        </td>
+    </tr>
+    }
+
+</table>
+      

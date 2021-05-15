@@ -1,0 +1,14 @@
+﻿@using bishe1.Models;
+@using System.Data;
+@{
+    ViewBag.Title = "ErrorView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>登录失败，请返回上一页重新登入。</h2>
+
+<form role="form" action="/Login/Index" method="post">
+    
+    <button type="sumbit" class="btn btn-primary btn-lg " name="BackBtn">Back</button>
+
+</form>

@@ -1,0 +1,112 @@
+﻿@model bishe1.Entity.user_information
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLogonLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div class="form-horizontal">
+    @using (Ajax.BeginForm("Edit", "BackEdit", new AjaxOptions { HttpMethod = "post", OnSuccess = "success" }))
+    {
+
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.loginID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.loginID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.loginID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.flag, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.flag, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.flag, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.qq, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.qq, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.qq, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.tel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.tel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.tel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.registertime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.registertime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.registertime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.type1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.type1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.type1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.eal1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.eal1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.eal1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(u => u.eal2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(u => u.eal2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(u => u.eal2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    
+        
+        
+    }
+</div>
+

@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "User Login";
+}
+@{
+    var test = ViewData["test1"] as bishe1.Models.User;
+}
+
+<ul>
+    @test.Username;
+    @test.Password;
+</ul>
+<p>Hello from our Login Page!</p>

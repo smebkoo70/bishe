@@ -1,0 +1,90 @@
+﻿@using bishe1.Models;
+@using System.Data;
+@model IEnumerable<bishe1.Models.UserInformation>
+
+@{
+    ViewBag.Title = "UserListView";
+    Layout = "~/Views/Shared/_AdminLogonLayout.cshtml";
+}
+
+<h2>UserListView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoginID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.QQ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tel)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (DataRow dr in (ViewData["UserInfo"] as DataTable).Rows)
+    {
+        <tr>
+            <td>
+                @dr["id"]
+            </td>
+            <td>
+                @dr["username"]
+            </td>
+            <td>
+                @dr["password"]
+            </td>
+            <td>
+                @dr["loginID"]
+            </td>
+            <td>
+                @dr["flag"]
+            </td>
+            <td>
+                @dr["email"]
+            </td>
+            <td>
+                @dr["qq"]
+            </td>
+            <td>
+                @dr["tel"]
+            </td>
+            <td>
+                @dr["registertime"]
+            </td>
+            <td>
+                @dr["type1"]
+            </td>
+        </tr>
+        
+
+    }
+
+</table>
