@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -314,6 +315,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserInformationModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entity\user_elist.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>user_elist.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\user_elist.cs">
+      <DependentUpon>user_elist.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\user_elist.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>user_elist.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\user_elist1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>user_elist.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\user_information.cs">
       <DependentUpon>UserInformationModel.tt</DependentUpon>
     </Compile>
@@ -351,6 +370,16 @@
       <DependentUpon>UserInformationModel.edmx</DependentUpon>
       <LastGenOutput>UserInformationModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Entity\user_elist.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>user_elist.edmx</DependentUpon>
+      <LastGenOutput>user_elist.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\user_elist.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>user_elist.edmx</DependentUpon>
+      <LastGenOutput>user_elist1.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -370,6 +399,13 @@
     </EntityDeploy>
     <Content Include="Entity\Notice.edmx.diagram">
       <DependentUpon>Notice.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Entity\user_elist.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>user_elist.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\user_elist.edmx.diagram">
+      <DependentUpon>user_elist.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -445,6 +481,10 @@
     <Content Include="Views\BackManager\NoticeVisit.cshtml" />
     <Content Include="Views\BackManager\NoticeModify.cshtml" />
     <Content Include="Views\BackManager\NoticeDelete.cshtml" />
+    <Content Include="Views\MemberLogon\NoticeOverView.cshtml" />
+    <Content Include="Views\MemberLogon\NoticeVisit.cshtml" />
+    <Content Include="Views\BackManager\EmailView.cshtml" />
+    <Content Include="Views\BackManager\SendEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -483,7 +523,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55366</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55366/</IISUrl>
+          <IISUrl>http://localhost:55366</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:55366/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

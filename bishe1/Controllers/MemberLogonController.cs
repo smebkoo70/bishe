@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Org.BouncyCastle.Asn1.Crmf;
 using MySql.Data.MySqlClient;
+using bishe1.Entity;
 
 namespace bishe1.Controllers
 {
@@ -245,6 +246,25 @@ namespace bishe1.Controllers
             Response.Write("<script>alert('why GX bug?');</script>");
             return View();
         }
+
+
+        public IList<notice> NoticeList { get; set; }
+        NoticeEntities1 ne = new NoticeEntities1();
+
+        public ActionResult NoticeOverView()
+        {
+            NoticeList = ne.Set<notice>().ToList();
+            ViewBag.NoteList = NoticeList;
+            return View();
+        }
+
+        public ActionResult NoticeVisit(int id)
+        {
+            notice noteInfo = ne.Set<notice>().Where(u => u.id == id).FirstOrDefault();
+            return View(noteInfo);
+        }
+
+        
     }
 }
 /*

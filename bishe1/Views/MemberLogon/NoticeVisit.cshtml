@@ -1,0 +1,32 @@
+﻿@model bishe1.Entity.notice
+@{
+    ViewBag.Title = "NoticeVisit";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<h5>员工端=>通知=>通知详情浏览</h5>
+
+<h2 class="text-center">
+    @Html.DisplayTextFor(n => n.title)
+</h2>
+<br />
+<tr>
+    <h4 class="text-right">
+        @Html.DisplayTextFor(n => n.subtime)
+    </h4>
+
+</tr>
+<br />
+
+<p class="text-justify" style="font-size: 16px">
+    @Html.DisplayTextFor(n => n.contents)
+</p>
+
+<br />
+<tr>
+    <h4 class="text-right">
+        最后修改日期：@Html.DisplayTextFor(n => n.edittime)
+    </h4>
+
+</tr>
+

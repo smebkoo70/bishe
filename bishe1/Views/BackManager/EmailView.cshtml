@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "EmailView";
+    Layout = "~/Views/Shared/_AdminLogonLayout.cshtml";
+}
+
+<h2>EmailView</h2>
+
+<form role="form" action="/BackManager/SendEmail" method="post">
+    <div class="form-group">
+        <label for="name">收件人</label>
+        <input type="text" class="form-control" placeholder="请输入收件人" name="loginID" value="">
+    </div>
+    <div class="form-group">
+        <label for="name">邮件标题</label>
+        <input type="text" class="form-control" placeholder="请输入标题" name="title" value="">
+    </div>
+    <div class="form-group">
+        <label for="name">正文</label>
+        <textarea type="text" class="form-control" placeholder="请输入正文" name="content" value=""></textarea>
+    </div>
+    
+    <br />
+    <button type="sumbit" class="btn btn-primary btn-lg " name="SumbitBtn" onclick="LoginBtn_Click()">Send</button>
+    <br />
+
+</form>

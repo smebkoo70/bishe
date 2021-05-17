@@ -1,0 +1,49 @@
+﻿@model IEnumerable<bishe1.Entity.notice>
+@using bishe1.Entity;
+@{
+    ViewBag.Title = "NoticeOverView";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<h5>首页=>通知浏览（员工端）</h5>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.subtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edittime)
+        </th>
+        <th>
+            操作
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (notice noticeInfo in ViewBag.NoteList)
+    {
+        <tr>
+            <td>@noticeInfo.id</td>
+
+            <td>@noticeInfo.title</td>
+
+            <td>@noticeInfo.subtime</td>
+
+            <td>@noticeInfo.edittime</td>
+
+            <td>
+                <a href="/MemberLogon/NoticeVisit/@noticeInfo.id">查看</a>
+                
+            </td>
+        </tr>
+    }
+
+</table>

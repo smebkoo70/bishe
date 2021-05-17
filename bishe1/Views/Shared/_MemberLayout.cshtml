@@ -9,6 +9,19 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
+<style type="text/css">
+    pre {
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        font-family: "Microsoft Yahei";
+    }
+
+    p {
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        font-family: "Microsoft Yahei";
+    }
+</style>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -25,7 +38,7 @@
 
                     <li>@Html.ActionLink("主页", "Index", "MemberLogon")</li>
                     <li>@Html.ActionLink("个人信息修改", "InfoModifyPage", "MemberLogon")</li>
-                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("通知查看", "NoticeOverView", "MemberLogon")</li>
                     <li>@Html.ActionLink("测试", "Index", "HelloWorld")</li>
 
                 </ul>
