@@ -1,0 +1,67 @@
+﻿@model bishe1.Entity.wage
+@{
+    ViewBag.Title = "NewWageDetail";
+    Layout = "~/Views/Shared/_AdminLogonLayout.cshtml";
+}
+
+<h2>NewWageDetail</h2>
+
+<div class="form-horizontal">
+    @using (Ajax.BeginForm("NewWageDetail", "Wage", new AjaxOptions { HttpMethod = "post", OnSuccess = "success" }))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(n => n.type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.type, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <br /><br />
+
+        <div class="form-group">
+            @Html.LabelFor(n => n.basis, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.basis, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.basis, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="form-group">
+            @Html.LabelFor(n => n.performance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.performance, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.performance, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="form-group">
+            @Html.LabelFor(n => n.manqin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.manqin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.manqin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="form-group">
+            @Html.LabelFor(n => n.craft, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.craft, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.craft, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="发布" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+

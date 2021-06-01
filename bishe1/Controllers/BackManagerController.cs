@@ -160,7 +160,7 @@ namespace bishe1.Controllers
             ne.SaveChanges();
             NoticeList = ne.Set<notice>().ToList();
             ViewBag.NoteList = NoticeList;
-            return Redirect("NoticeIndex");
+            return RedirectToAction("NoticeIndex");
         }
 
 

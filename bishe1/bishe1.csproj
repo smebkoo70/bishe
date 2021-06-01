@@ -276,6 +276,7 @@
     <Compile Include="Controllers\MemberLogonController.cs" />
     <Compile Include="Controllers\SendEmail.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\WageController.cs" />
     <Compile Include="Entity\admin_userinfo.cs">
       <DependentUpon>UserInformationModel.tt</DependentUpon>
     </Compile>
@@ -336,6 +337,24 @@
     <Compile Include="Entity\user_information.cs">
       <DependentUpon>UserInformationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Wage.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wage.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\wage.cs">
+      <DependentUpon>Wage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Wage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wage.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Wage1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wage.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -380,6 +399,16 @@
       <DependentUpon>user_elist.edmx</DependentUpon>
       <LastGenOutput>user_elist1.cs</LastGenOutput>
     </Content>
+    <Content Include="Entity\Wage.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Wage.edmx</DependentUpon>
+      <LastGenOutput>Wage.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\Wage.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Wage.edmx</DependentUpon>
+      <LastGenOutput>Wage1.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -406,6 +435,13 @@
     </EntityDeploy>
     <Content Include="Entity\user_elist.edmx.diagram">
       <DependentUpon>user_elist.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Entity\Wage.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Wage.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\Wage.edmx.diagram">
+      <DependentUpon>Wage.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -485,6 +521,10 @@
     <Content Include="Views\MemberLogon\NoticeVisit.cshtml" />
     <Content Include="Views\BackManager\EmailView.cshtml" />
     <Content Include="Views\BackManager\SendEmail.cshtml" />
+    <Content Include="Views\Wage\Index.cshtml" />
+    <Content Include="Views\Wage\NewWageDetail.cshtml" />
+    <Content Include="Views\Wage\WageModify.cshtml" />
+    <Content Include="Views\Wage\WageDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

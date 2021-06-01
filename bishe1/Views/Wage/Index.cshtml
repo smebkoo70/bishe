@@ -1,0 +1,62 @@
+﻿@model IEnumerable<bishe1.Entity.wage>
+@using bishe1.Entity;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLogonLayout.cshtml";
+}
+
+<h2>WageIndex</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "NewWageDetail")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.basis)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.performance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.manqin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.craft)
+        </th>
+        <th>
+            操作
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (wage wageInfo in ViewBag.WageList)
+    {
+    <tr>
+        <td>@wageInfo.type</td>
+
+        <td>@wageInfo.basis</td>
+
+        <td>@wageInfo.performance</td>
+
+        <td>@wageInfo.manqin</td>
+
+        <td>@wageInfo.craft</td>
+        <td>
+            
+            <a href="/Wage/WageModify/@wageInfo.id">修改</a>
+            <a href="/BackManager/NoticeDelete/@wageInfo.id">删除</a>
+        </td>
+    </tr>
+    }
+
+</table>
