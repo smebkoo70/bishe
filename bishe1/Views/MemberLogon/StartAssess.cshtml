@@ -1,0 +1,67 @@
+﻿@model bishe1.Entity.assess1
+@{
+    ViewBag.Title = "StartAssess";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<h2>StartAssess</h2>
+
+<div class="form-horizontal">
+    @using (Ajax.BeginForm("StartAssess", "MemberLogon", new AjaxOptions { HttpMethod = "post", OnSuccess = "success" }))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(n => n.type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.type, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <br /><br />
+
+        <div class="form-group">
+            @Html.LabelFor(n => n.attendance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.attendance, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.attendance, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="form-group">
+            @Html.LabelFor(n => n.requirement, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.requirement, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.requirement, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="form-group">
+            @Html.LabelFor(n => n.extra, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.extra, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.extra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="form-group">
+            @Html.LabelFor(n => n.self, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(n => n.self, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(n => n.self, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="提交" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+

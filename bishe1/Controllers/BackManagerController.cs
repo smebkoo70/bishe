@@ -220,6 +220,7 @@ namespace bishe1.Controllers
             ViewBag.publishList = publishList;
             return View("Index");
         }*/
+
         public ActionResult EmailView()
         {
             return View();

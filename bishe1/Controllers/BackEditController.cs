@@ -16,7 +16,10 @@ namespace bishe1.Controllers
         bisheEntities2 be = new bisheEntities2();
         public ActionResult Index()
         {
+            //publishList = be.Set<user_information>().Where(x => x.id == 2).ToList();
             publishList = be.Set<user_information>().ToList();
+            //var testpublishlist = be.user_information.Where(u => u.id == 5);
+            //publishList = testpublishlist.ToList();
             ViewBag.publishList = publishList;
             return View();
         }

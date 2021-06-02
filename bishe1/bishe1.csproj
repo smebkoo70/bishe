@@ -264,6 +264,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BackAssessController.cs" />
     <Compile Include="Controllers\BackEditController.cs" />
     <Compile Include="Controllers\BackManagerController.cs" />
     <Compile Include="Controllers\BackStageController.cs" />
@@ -274,11 +275,30 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MD5Str.cs" />
     <Compile Include="Controllers\MemberLogonController.cs" />
+    <Compile Include="Controllers\RandomStr.cs" />
     <Compile Include="Controllers\SendEmail.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WageController.cs" />
     <Compile Include="Entity\admin_userinfo.cs">
       <DependentUpon>UserInformationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Assess.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assess.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Assess.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Assess.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Assess.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\assess1.cs">
+      <DependentUpon>Assess.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Notice.Context.cs">
       <AutoGen>True</AutoGen>
@@ -369,6 +389,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Entity\Assess.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Assess.edmx</DependentUpon>
+      <LastGenOutput>Assess.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\Assess.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Assess.edmx</DependentUpon>
+      <LastGenOutput>Assess.cs</LastGenOutput>
+    </Content>
     <Content Include="Entity\Notice.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Notice.edmx</DependentUpon>
@@ -421,6 +451,7 @@
     </EntityDeploy>
     <Content Include="Entity\UserInformationModel.edmx.diagram">
       <DependentUpon>UserInformationModel.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <EntityDeploy Include="Entity\Notice.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -442,6 +473,13 @@
     </EntityDeploy>
     <Content Include="Entity\Wage.edmx.diagram">
       <DependentUpon>Wage.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Entity\Assess.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Assess.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\Assess.edmx.diagram">
+      <DependentUpon>Assess.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -525,6 +563,12 @@
     <Content Include="Views\Wage\NewWageDetail.cshtml" />
     <Content Include="Views\Wage\WageModify.cshtml" />
     <Content Include="Views\Wage\WageDelete.cshtml" />
+    <Content Include="Views\MemberLogon\AssessIndex.cshtml" />
+    <Content Include="Views\MemberLogon\StartAssess.cshtml" />
+    <Content Include="Views\BackAssess\Index.cshtml" />
+    <Content Include="Views\BackAssess\AssessModify.cshtml" />
+    <Content Include="Views\MemberLogon\AssessDetails.cshtml" />
+    <Content Include="Views\BackAssess\AssessDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

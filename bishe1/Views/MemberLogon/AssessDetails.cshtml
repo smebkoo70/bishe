@@ -1,0 +1,137 @@
+﻿@model bishe1.Entity.assess1
+@{
+    ViewBag.Title = "AssessDetails";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<h2>AssessDetails</h2>
+
+<tr>
+    <div class="form-group">
+        @Html.LabelFor(n => n.loginID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.loginID)
+            @Html.ValidationMessageFor(n => n.loginID, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(n => n.type, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.type)
+            @Html.ValidationMessageFor(n => n.type, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.attendance, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.attendance)
+            @Html.ValidationMessageFor(n => n.attendance, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.requirement, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.requirement)
+            @Html.ValidationMessageFor(n => n.requirement, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(n => n.extra, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.extra)
+            @Html.ValidationMessageFor(n => n.extra, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.extra, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.extra)
+            @Html.ValidationMessageFor(n => n.extra, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.self, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.self)
+            @Html.ValidationMessageFor(n => n.self, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.date, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.date)
+            @Html.ValidationMessageFor(n => n.date, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.auditstatus, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.auditstatus)
+            @Html.ValidationMessageFor(n => n.auditstatus, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(n => n.auditID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.auditID)
+            @Html.ValidationMessageFor(n => n.auditID, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.result, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.result)
+            @Html.ValidationMessageFor(n => n.result, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.wage, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.wage)
+            @Html.ValidationMessageFor(n => n.wage, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.backres, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayTextFor(n => n.backres)
+            @Html.ValidationMessageFor(n => n.backres, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+    <br />
+</tr>
+<br />

@@ -2,23 +2,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
 using Org.BouncyCastle.Asn1.Crmf;
 using MySql.Data.MySqlClient;
 using bishe1.Entity;
+using CCWin.SkinClass;
 
 namespace bishe1.Controllers
 {
     public class MemberLogonController : Controller
     {
-
+        private string name1, name2, pwd1, pwd2, type,loginID,name3;
+        //name1,pwd1是表单的用户名和密码,name2是数据库的
+        
         public ActionResult Jumpto()
         {
             Response.Write("<script>alert('Login Success.');</script>");
             return View();
         }
+        public static string connectstr = DBManager.LocalhostMySQLdbstr;
 
+        MySqlConnection InfoLoadConn = new MySqlConnection(connectstr);
 
         // GET: MemberLogon
         public ActionResult Index()
@@ -33,7 +39,7 @@ namespace bishe1.Controllers
                 User reUser = new User();
                 //把保存的用户名和密码赋值给对应的文本框
                 //用户名
-                string name3 = ReadCookie.Values["UserName"].ToString();
+                name3 = ReadCookie.Values["UserName"].ToString();
                 //Response.Write("<script>alert(' name3 = " + name3 + "');</script>");
                 
                 if (name3 == null)
@@ -48,6 +54,24 @@ namespace bishe1.Controllers
                 reUser.Username = name3;
 
                 reUser.Password = pwd3;
+                try
+                {
+                    InfoLoadConn.Open();
+                    MySqlCommand loginIdReadCommand = InfoLoadConn.CreateCommand();
+                    loginIdReadCommand.CommandText = "select loginID from user_information where username = '"
+                                                     + name3 + "'";
+                    MySqlDataReader loginIDReader = loginIdReadCommand.ExecuteReader();
+                    while (loginIDReader.Read())
+                    {
+                        loginID = loginIDReader["loginID"].ToString();
+                    }
+                    InfoLoadConn.Close();
+                }
+                catch (Exception e)
+                {
+                    string ee = e.ToString();
+                    return View(ee);
+                }
                 ViewData["remeuser"] = reUser;
 
             }
@@ -57,6 +81,9 @@ namespace bishe1.Controllers
 
             }
             //Response.Write("<script>alert('Login Success.');</script>");
+
+
+
             return View();
         }
 
@@ -73,11 +100,7 @@ namespace bishe1.Controllers
         /// 信息修改页面，需要载入数据
         /// </summary>
 
-        private string name1, name2, pwd1, pwd2, type;
-        //name1,pwd1是表单的用户名和密码,name2是数据库的
-        public static string connectstr = DBManager.LocalhostMySQLdbstr;
-
-        MySqlConnection InfoLoadConn = new MySqlConnection(connectstr);
+        
 
         public ActionResult InfoModifyPage()
         {
@@ -264,7 +287,168 @@ namespace bishe1.Controllers
             return View(noteInfo);
         }
 
+        /// <summary>
+        /// 评估部分代码
+        /// </summary>
+        public IList<assess1> AssessList { get; set; }
+        AssessEntities2 ae = new AssessEntities2();
         
+        public ActionResult AssessIndex()
+        {
+            HttpCookie ReadCookie = Request.Cookies.Get("Remeuser");
+
+            //判断cookie是否空值
+            if (ReadCookie != null)
+            {
+
+                User reUser = new User();
+                //把保存的用户名和密码赋值给对应的文本框
+                //用户名
+                name3 = ReadCookie.Values["UserName"].ToString();
+                //Response.Write("<script>alert(' name3 = " + name3 + "');</script>");
+
+                if (name3 == null)
+                {
+                    return Redirect("../Login/Index");
+                }
+                ViewBag.UserName = name3;
+                //ViewBag.UserName = "123456";
+                //密码
+                string pwd3 = ReadCookie.Values["UserPwd"].ToString();
+                ViewBag.Password = pwd3;
+                reUser.Username = name3;
+
+                reUser.Password = pwd3;
+                try
+                {
+                    InfoLoadConn.Open();
+                    MySqlCommand loginIdReadCommand = InfoLoadConn.CreateCommand();
+                    loginIdReadCommand.CommandText = "select loginID from user_information where username = '"
+                                                     + name3 + "'";
+                    MySqlDataReader loginIDReader = loginIdReadCommand.ExecuteReader();
+                    while (loginIDReader.Read())
+                    {
+                        loginID = loginIDReader["loginID"].ToString();
+                    }
+                    InfoLoadConn.Close();
+                }
+                catch (Exception e)
+                {
+                    string ee = e.ToString();
+                    return View(ee);
+                }
+                ViewData["remeuser"] = reUser;
+
+            }
+            else
+            {
+                return RedirectToAction("../Login/Index");
+
+            }
+
+
+
+
+            AssessList = ae.Set<assess1>().Where(u=>u.loginID == loginID).ToList();
+            ViewBag.AssessList = AssessList;
+
+            return View();
+        }
+
+        public ActionResult StartAssess()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult StartAssess(assess1 NewAssess1)
+        {
+            HttpCookie ReadCookie = Request.Cookies.Get("Remeuser");
+
+            //判断cookie是否空值
+            if (ReadCookie != null)
+            {
+
+                User reUser = new User();
+                //把保存的用户名和密码赋值给对应的文本框
+                //用户名
+                name3 = ReadCookie.Values["UserName"].ToString();
+                //Response.Write("<script>alert(' name3 = " + name3 + "');</script>");
+
+                if (name3 == null)
+                {
+                    return Redirect("../Login/Index");
+                }
+                ViewBag.UserName = name3;
+                //ViewBag.UserName = "123456";
+                //密码
+                string pwd3 = ReadCookie.Values["UserPwd"].ToString();
+                ViewBag.Password = pwd3;
+                reUser.Username = name3;
+
+                reUser.Password = pwd3;
+                try
+                {
+                    InfoLoadConn.Open();
+                    MySqlCommand loginIdReadCommand = InfoLoadConn.CreateCommand();
+                    loginIdReadCommand.CommandText = "select loginID from user_information where username = '"
+                                                     + name3 + "'";
+                    MySqlDataReader loginIDReader = loginIdReadCommand.ExecuteReader();
+                    while (loginIDReader.Read())
+                    {
+                        loginID = loginIDReader["loginID"].ToString();
+                    }
+                    InfoLoadConn.Close();
+                }
+                catch (Exception e)
+                {
+                    string ee = e.ToString();
+                    return View(ee);
+                }
+                ViewData["remeuser"] = reUser;
+
+            }
+            else
+            {
+                return RedirectToAction("../Login/Index");
+
+            }
+
+
+
+            if (!ModelState.IsValid)
+            {
+                return Content("error");
+            }
+            NewAssess1.id = Guid.NewGuid().ToInt32();
+            //评估单的ID，随机生成
+            NewAssess1.auditID = RandomStr.RandomAuditID();
+            //评估提交日期，系统时间
+            NewAssess1.date = DateTime.Now;
+            //loginID,直接读
+            NewAssess1.loginID = loginID;
+            //审核状态，0为未审核，期初都填0
+            NewAssess1.auditstatus = 0;
+            //后台给分，刚开始默认-1;
+            NewAssess1.backres = -1;
+            //工资，刚开始也是0
+            NewAssess1.wage = 0;
+            //总结果，也是0
+            NewAssess1.result = -1;
+            ae.assess1.Add(NewAssess1);
+            
+            //ne.publishes.Add(NewNote);
+            ae.SaveChanges();
+            AssessList = ae.Set<assess1>().Where(x=>x.loginID == loginID).ToList();
+            ViewBag.AssessList = AssessList;
+            return RedirectToAction("AssessIndex");
+        }
+
+        public ActionResult AssessDetails(int id)
+        {
+            assess1 assessInfo = ae.Set<assess1>().Where(u => u.id == id).FirstOrDefault();
+            return View(assessInfo);
+        }
     }
 }
 /*

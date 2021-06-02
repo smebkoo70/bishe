@@ -1,0 +1,68 @@
+﻿@model IEnumerable<bishe1.Entity.assess1>
+@using bishe1.Entity;
+
+@{
+    ViewBag.Title = "AssessIndex";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<h2>AssessIndex</h2>
+
+<p>
+    @Html.ActionLink("开始评估", "StartAssess")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.loginID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.auditID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.auditstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.result)
+        </th>
+        <th>
+            操作
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (assess1 assessInfo in ViewBag.AssessList)
+    {
+    <tr>
+        <td>@assessInfo.id</td>
+
+        <td>@assessInfo.loginID</td>
+
+        <td>@assessInfo.auditID</td>
+
+        <td>@assessInfo.type</td>
+
+        <td>@assessInfo.date</td>
+
+        <td>@assessInfo.auditstatus</td>
+
+        <td>@assessInfo.result</td>
+
+        
+        <td>
+            <a href="/MemberLogon/AssessDetails/@assessInfo.id">查看</a>
+
+        </td>
+    </tr>
+    }
+
+</table>
