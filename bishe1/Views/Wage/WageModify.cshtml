@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLogonLayout.cshtml";
 }
 
-<h2>WageModify</h2>
+<h2>修改系数，只对该工种生效</h2>
 
 <div class="form-horizontal">
     @using (Ajax.BeginForm("WageModify", "Wage", new AjaxOptions { HttpMethod = "post", OnSuccess = "success" }))

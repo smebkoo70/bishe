@@ -201,9 +201,9 @@ namespace bishe1.Controllers
             uqq = updateUser.QQ;
             utel = updateUser.Tel;
             
-            
+            string upwd2 = MD5Str.MD5(upwd);
             string text = "update user_information set password = '"
-                          + upwd + "',loginID = '" + uloginID + "',email = '" + uemail
+                          + upwd2 + "',loginID = '" + uloginID + "',email = '" + uemail
                           + "',qq = '" + uqq + "',tel = '" + utel + "' where username = '" + u_username + "'";
             //Response.Write("<script>alert(' 到底bug在哪呢？ ');</script>");
             Response.Write("<script>alert(' name,loginID = " + u_username + "');</script>");
@@ -224,10 +224,14 @@ namespace bishe1.Controllers
                 {
                     res = 0;
                     updateInfoCmd.CommandText = "update user set password = '"
-                                                + upwd + "',name = '" + uloginID + "' where username = '" + u_username + "'";
+                                                + upwd1 + "',name = '" + uloginID + "' where username = '" + u_username + "'";
                     res = updateInfoCmd.ExecuteNonQuery();
                     if (res > 0)
                     {
+                        HttpCookie RememberCookie = new HttpCookie("RemeUser");
+                        RememberCookie["UserName"] = u_username;
+                        RememberCookie["UserPwd"] = upwd;
+                        Response.Cookies.Add(RememberCookie);
                         //Response.Write("<script>alert('Update User's Info Success.');</script>");
                         UpdateConn.Close();
                         return RedirectToAction("UpdateSuccess");

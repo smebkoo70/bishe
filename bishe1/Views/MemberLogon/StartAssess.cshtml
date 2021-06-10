@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 
-<h2>StartAssess</h2>
+<h2>（员工端）开始评估</h2>
+<br />
+<h4>员工在此提交数据，由上级进行第二次审核。</h4>
 
 <div class="form-horizontal">
     @using (Ajax.BeginForm("StartAssess", "MemberLogon", new AjaxOptions { HttpMethod = "post", OnSuccess = "success" }))
